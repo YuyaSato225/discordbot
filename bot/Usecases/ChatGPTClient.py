@@ -6,7 +6,6 @@ from ..Dtos.ChatGPTResponse import ChatGPTResponse
 class ChatGPTClient:
     def send_request(self, request: ChatGPTRequest) -> ChatGPTResponse:
         openai.api_key = config.OPENAI_API_KEY
-        print("test")
         response = openai.chat.completions.create(
             model="gpt-4-turbo-preview",
             messages=[
