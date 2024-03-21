@@ -1,14 +1,17 @@
 import discord
 from discord.ext import commands
 from discord import app_commands
-from ..Usecases.ChatGPTClient import ChatGPTClient
+from ..Usecases.ChatGPTUsecase import ChatGPTUsecase
 from ..Dtos.ChatGPTRequest import ChatGPTRequest
 from ..Dtos.ChatGPTResponse import ChatGPTResponse
+from injector import inject
 
 
 class CommandCog(commands.Cog):
-    def __init__(self, bot):
+    @inject
+    def __init__(self, bot, gpt: ChatGPTUsecase):
         self.bot = bot
+        self.gpt = gpt
 
     @app_commands.command(name='test', description='あいさつをするよ')
     async def test(self, ctx: discord.Interaction):
@@ -18,6 +21,5 @@ class CommandCog(commands.Cog):
     @app_commands.describe(message_text='送信するメッセージ')
     async def chat(self, ctx: discord.Interaction, message_text: str):
         await ctx.response.defer()
-        gpt = ChatGPTClient()
-        response = gpt.send_request(message_text)
-        await ctx.followup.send(response)
+        response = self.gpt.send_request(ChatGPTRequest(message_text))
+        await ctx.followup.send(response.response)

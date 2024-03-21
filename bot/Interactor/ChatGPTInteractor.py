@@ -2,12 +2,16 @@ import openai
 from .. import config
 from ..Dtos.ChatGPTRequest import ChatGPTRequest
 from ..Dtos.ChatGPTResponse import ChatGPTResponse
+from ..Usecases.ChatGPTUsecase import ChatGPTUsecase
 
-class ChatGPTClient:
+class ChatGPTInteractor(ChatGPTUsecase):
+    def __init__(self):
+        pass
     def send_request(self, request: ChatGPTRequest) -> ChatGPTResponse:
         openai.api_key = config.OPENAI_API_KEY
+
         response = openai.chat.completions.create(
-            model="gpt-4-turbo-preview",
+            model="gpt-4",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
                 {"role": "user", "content": request.request},
