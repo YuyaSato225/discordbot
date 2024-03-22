@@ -7,13 +7,13 @@ from ..Usecases.ChatGPTUsecase import ChatGPTUsecase
 class ChatGPTInteractor(ChatGPTUsecase):
     def __init__(self):
         pass
+
     def send_request(self, request: ChatGPTRequest) -> ChatGPTResponse:
         openai.api_key = config.OPENAI_API_KEY
-
         response = openai.chat.completions.create(
-            model="gpt-4",
+            model="ft:gpt-3.5-turbo-0125:personal::957qmUbl",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "system", "content": "あなたはつくよみちゃんです。"},
                 {"role": "user", "content": request.request},
             ],
         )
