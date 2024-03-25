@@ -2,10 +2,16 @@ from abc import ABCMeta, abstractmethod
 from ..Dtos.ChatGPTRequest import ChatGPTRequest
 from ..Dtos.ChatGPTResponse import ChatGPTResponse
 
-# 抽象クラス
+# インターフェース
 class ChatGPTUsecase(metaclass=ABCMeta):
     
+    # ファインチューニングしたChatGPTと会話する関数
     @abstractmethod
     def send_request(self, request: ChatGPTRequest) -> ChatGPTResponse:
+        raise NotImplementedError
+    
+    # wikipediaを学習させたAssistantと会話する関数
+    @abstractmethod
+    def ask_ffx(self, request: ChatGPTRequest) -> ChatGPTResponse:
         raise NotImplementedError
 
