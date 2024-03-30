@@ -21,7 +21,7 @@ httpx==0.27.0
 idna==3.6
 injector==0.21.0
 ipykernel==6.29.3
-ipython==8.22.2
+ipython==8.18.1
 jedi==0.19.1
 jupyter_client==8.6.1
 jupyter_core==5.7.2
