@@ -12,7 +12,7 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
 
 # 導入方法
 サーバーにbotを追加可能な権限を持った人が
-https://discord.com/oauth2/authorize?client_id=1181221037468307496&permissions=0&scope=bot
+
 にアクセスするとこのbotを追加することができます。
 
 # 使用方法
@@ -28,7 +28,8 @@ https://discord.com/oauth2/authorize?client_id=1181221037468307496&permissions=0
 
 # 各フォルダの役割
 - bot: 実際のbotが入っています
-  - application:
-  - Dtos:
-  - Usecase
-  - Interactor
+  - application: アプリケーション層のコードが格納されています。
+  - Dtos:　アプリケーション層とユースケース層間で受け渡すデータの型の定義です。
+  - Usecase: ユースケース層のインターフェースです。今回は抽象クラスで実装しています。
+  - Interactor: ユースケースの、実際の実装が格納されています。
+- fine-tuning: ファインチューニングに用いたnotebookを格納しています。 
