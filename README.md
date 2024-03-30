@@ -38,11 +38,13 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
 アプリケーション層
 - discordのbot部分はdiscord.py(https://pypi.org/project/discord.py/)
 を使用しています。
+
 ビジネスロジック層
 - OpenAI apiの呼び出しには(https://pypi.org/project/openai/)
 を使用しています。
 - `/send_request` で用いているモデルのファインチューニングは、 `fine_tuning` 内にあるノートブックを用いています。
 - `/ask_ffx` ではAssistant apiを呼び出しています。
+
 デプロイ
 - 常時稼働には、AWSのEC2を用いています。
 
