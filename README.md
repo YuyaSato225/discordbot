@@ -33,3 +33,10 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
   - Usecase: ユースケース層のインターフェースです。今回は抽象クラスで実装しています。
   - Interactor: ユースケースの、実際の実装が格納されています。
 - fine-tuning: ファインチューニングに用いたnotebookを格納しています。 
+
+# クレジット
+当botの作成には、フリー素材キャラクター「つくよみちゃん」が無料公開している会話テキストデータセットを使用しています。
+
+■つくよみちゃん会話AI育成計画
+https://tyc.rei-yumesaki.net/material/kaiwa-ai/
+© Rei Yumesaki
