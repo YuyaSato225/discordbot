@@ -6,7 +6,6 @@ from . import config
 from .application.command import CommandCog
 from .dependency import dependency
 from .Usecases.ChatGPTUsecase import ChatGPTUsecase
-# from .keep_alive import keep_alive
 
 
 async def main():
@@ -31,8 +30,6 @@ async def main():
         print("Bot is ready")
         #await bot.tree.sync()
     gpt = injector.resolve(ChatGPTUsecase)
-    # デプロイ対応
-    # keep_alive()
     # Cogを有効化
     await bot.add_cog(CommandCog(bot, gpt))
     # Botを起動
