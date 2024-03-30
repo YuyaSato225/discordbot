@@ -13,18 +13,6 @@ async def main():
     intents = discord.Intents.default()
     bot = commands.Bot(command_prefix="/",intents=intents)
 
-    # on_readyの前に実行されるイベントリスナー
-    @bot.event
-    async def setup_hook() -> None:
-        guild_ids = [626717930591354881] # すぐに同期したいサーバーのIDを入れる
-        for g in guild_ids:
-            try:
-                #bot.tree.sync(guild=discord.Object(id=g))
-                print(f"{g}との同期が完了しました")
-            except discord.errors.Forbidden:
-                # やりすぎるとForbiddenになるので、一応例外処理を入れておく
-                print(f"サーバーID:{g}に登録できませんでした。")
-
     @bot.event
     async def on_ready():
         print("Bot is ready")

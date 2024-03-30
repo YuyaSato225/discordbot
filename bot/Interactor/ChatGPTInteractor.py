@@ -29,25 +29,22 @@ class ChatGPTInteractor(ChatGPTUsecase):
 
     # wikipediaを学習させたアシスタントと会話する関数
     def ask_ffx(self, request: ChatGPTRequest) -> ChatGPTResponse:
-        try:
-            # api_keyを定義して新規クライアントを作成
-            client = openai.OpenAI(api_key=config.OPENAI_API_KEY)
-            # 空の thread を作成する
-            thread = client.beta.threads.create()
-            # thread にユーザーからのメッセージを追加する
-            message = client.beta.threads.messages.create(
-                thread_id=thread.id,
-                role="user",
-                content=request.request
-            )
-            # Run を作成する
-            run = client.beta.threads.runs.create(
-                thread_id=thread.id,
-                assistant_id="asst_8NdpCXSrMCxLQ4jY0l7vTu8e",
-            )
-        except Exception as e:
-            print(e)
-        print("Run")
+        # api_keyを定義して新規クライアントを作成
+        client = openai.OpenAI(api_key=config.OPENAI_API_KEY)
+        # 空の thread を作成する
+        thread = client.beta.threads.create()
+        # thread にユーザーからのメッセージを追加する
+        message = client.beta.threads.messages.create(
+            thread_id=thread.id,
+            role="user",
+            content=request.request
+        )
+        # Run を作成する
+        run = client.beta.threads.runs.create(
+            thread_id=thread.id,
+            assistant_id="asst_8NdpCXSrMCxLQ4jY0l7vTu8e",
+        )
+
         # Run のステータスが`completed`になるまで待つ
         while not run.status == "completed":
             run = client.beta.threads.runs.retrieve(
