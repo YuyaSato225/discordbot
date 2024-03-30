@@ -26,7 +26,7 @@ class CommandCog(commands.Cog):
         await ctx.response.defer()
         # OpenAI apiにアクセスし、結果を得る
         response = self.gpt.send_request(ChatGPTRequest(message_text))
-        await ctx.followup.send(response.response)
+        await ctx.followup.send(f'ユーザー : {message_text}\n\nつくよみちゃん : {response.response}')
 
     # Assistantと会話するためのスラッシュコマンド
     @app_commands.command(name='ask_assistant', description='ffxについて教えてくれる')
@@ -36,5 +36,5 @@ class CommandCog(commands.Cog):
         await ctx.response.defer()
         # OpenAI apiにアクセスし、結果を得る
         response = self.gpt.ask_ffx(ChatGPTRequest(message_text))
-        await ctx.followup.send(response.response)
+        await ctx.followup.send(f'ユーザー : {message_text}\n\nアシスタント : {response.response}')
 
