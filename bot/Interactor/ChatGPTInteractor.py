@@ -23,7 +23,6 @@ class ChatGPTInteractor(ChatGPTUsecase):
             ],
         )
         # 結果をDTOで返す
-        print(response.choices[0].message.content)
         response = ChatGPTResponse(response=response.choices[0].message.content)
         return response
 
@@ -52,10 +51,12 @@ class ChatGPTInteractor(ChatGPTUsecase):
                 run_id=run.id
             )
             time.sleep(0.5)
+            if run.status == "failed":
+                print("failed")
+                return ChatGPTResponse(response="エラーが発生しました。再度お試し下さい。")
             print(run.status)
 
         # Thread 上の message のリストを降順で取得する
-        print("Thread")
         messages = client.beta.threads.messages.list(
             thread_id=thread.id,
             order="desc"
