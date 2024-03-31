@@ -11,8 +11,15 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
 を与えたAssistant(GPT-4-turbo)と会話ができます。
 
 # 導入方法
-サーバーにbotを追加可能な権限を持った人が
-にアクセスするとこのbotを追加することができます。
+
+### 各自のbotで動かす場合
+1. `config.py` の `DISCORD_BOT_TOKEN` に、自分のbotのdiscord bot tokenを入力してください。
+2. `config.py` の `OPENAI_API_KEY` に入力するOpenAI api key は、別途連携します。
+3. このリポジトリをダウンロードしたフォルダに移動し、 `pip install -r requirments.txt` を実行
+4. `python3 -m bot.main` を実行
+
+### 常時稼働しているbotを導入したい場合
+導入するためのリンクを別途共有します。
 
 # 使用方法
 返答を受け取りたいチャンネルで、以下のコマンドを入力してください。
