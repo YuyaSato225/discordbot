@@ -6,9 +6,9 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
 現在3つのコマンドが実装されています。
 - test: 「おはようございます！」と即座に返します。
 - send_request: つくよみちゃんAI育成計画(https://tyc.rei-yumesaki.net/material/kaiwa-ai/#terms1)
-でファインチューニングしたGPT-3.5と会話ができます。
+でファインチューニングを行い、口調の変更をしたGPT-3.5-turboと会話ができます。
 - ask_ffx: wikipedia(https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCX)
-を与えたAssistant(GPT-4-turbo)と会話ができます。
+を与え、このページの情報を取得したAssistant(GPT-4-turbo)と会話ができます。
 
 # 導入方法
 
@@ -35,7 +35,7 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
 # 各フォルダの役割
 - bot: 実際のbotが入っています
   - application: アプリケーション層のコードが格納されています。discordとのやり取りを担当します。
-  - Dtos:　アプリケーション層とユースケース層間で受け渡すデータの型の定義です。
+  - Dtos:　アプリケーション層とユースケース層間で受け渡すデータ型(DTO)の定義です。
   - Usecase: ビジネスロジック層のインターフェースです。今回は抽象クラスで実装しています。OpenAI apiとのやり取りを担当します。
   - Interactor: ビジネスロジックの、実際の実装が格納されています。
 - fine-tuning: ファインチューニングに用いたnotebookを格納しています。 
