@@ -23,9 +23,9 @@ OpenAIのapiとdiscord.pyを用いたdiscord上で動作するbotです。
 
 # 使用方法
 返答を受け取りたいチャンネルで、以下のコマンドを入力してください。
-- `/test` おはようございます！と返します。
-- `/send_request`　追加で `message_text` の入力が必要です。
-- `/ask_ffx`追加で `message_text` の入力が必要です。
+- `/test`: おはようございます！と返します。
+- `/send_request`:　追加で `message_text` の入力が必要です。
+- `/ask_ffx`: 追加で `message_text` の入力が必要です。
 
 # 意識した点
 - 3層アーキテクチャを意識したコードの分離　:　アプリケーション層(discordとのやり取りを担当)、ビジネスロジック層(OpenAI apiとのやり取りを担当)、データ層(現在該当する機能はなし)への適切な分離を行っています。
