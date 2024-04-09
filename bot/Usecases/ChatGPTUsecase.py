@@ -14,4 +14,8 @@ class ChatGPTUsecase(metaclass=ABCMeta):
     @abstractmethod
     def ask_ffx(self, request: ChatGPTRequest) -> ChatGPTResponse:
         raise NotImplementedError
+    
+    @abstractmethod
+    def conversion_chara(self, request: ChatGPTRequest) -> ChatGPTResponse:
+        raise NotImplementedError
 

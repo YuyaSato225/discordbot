@@ -38,3 +38,12 @@ class CommandCog(commands.Cog):
         response = self.gpt.ask_ffx(ChatGPTRequest(message_text))
         await ctx.followup.send(f'ユーザー : {message_text}\n\nアシスタント : {response.response}')
 
+    # Assistantと会話するためのスラッシュコマンド
+    @app_commands.command(name='conversion_chara', description='自機と会話')
+    @app_commands.describe(message_text='送信するメッセージ')
+    async def conversion_chara(self, ctx: discord.Interaction, message_text: str):
+        # 実際の返答を即座に行えないため、仮の返答をする
+        await ctx.response.defer()
+        # OpenAI apiにアクセスし、結果を得る
+        response = self.gpt.conversion_chara(ChatGPTRequest(message_text))
+        await ctx.followup.send(response.response)
